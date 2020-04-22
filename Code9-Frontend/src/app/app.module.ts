@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ApplayoutComponent } from './applayout/applayout.component';
 import { LoginComponent } from './login/login.component';
-import { SearchPipe } from './search.pipe';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
