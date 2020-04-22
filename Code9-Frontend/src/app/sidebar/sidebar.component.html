@@ -1,0 +1,32 @@
+<div class="sidebar" id="sidebar-wrapper">
+  <h3>نظام السلامة</h3>
+  <div class="bg-white p-2">
+  <img class="w-100" src="./assets/images/logo.png">
+</div>
+  <ul class="list-unstyled">
+    <span *ngFor="let role of currentUserRoles"></span>
+    <li (click)="hideMenu()" routerLink="/dashboard" routerLinkActive="active">الرئيسية</li>
+    <li (click)="hideMenu()" *ngIf="showBuilding" routerLink="/Building" routerLinkActive="active">المباني</li>
+    <li (click)="hideMenu()" *ngIf="showClassifications" routerLink="/SafetyToolsClassifications" routerLinkActive="active">تصنيف اجهزة السلامة</li>
+    <li (click)="hideMenu()" *ngIf="showNotesTypes" routerLink="/SafetyNotesTypes" routerLinkActive="active"> انواع ملاحظات السلامة</li>
+    <li (click)="hideMenu()" *ngIf="showDistribution" routerLink="/SafetyNetworkComponentDistributions" routerLinkActive="active">توزيع مكونات السلامة</li> 
+    <li (click)="hideMenu()" *ngIf="showNotes" routerLink="/SafetyNotes" routerLinkActive="active">ملاحظات السلامة</li>
+    <li (click)="hideMenu()" *ngIf="showNotesClosure" routerLink="/SafetyNoteClosure" routerLinkActive="active"> تسديد ملاحظات السلامة </li>
+    <li (click)="hideMenu()" *ngIf="showEvaluations" routerLink="/SafetyToolsEvaluation" routerLinkActive="active">اختبارات وتقييم المعدات</li>
+    <li (click)="hideMenu()" *ngIf="showUsers" routerLink="/UserManagement" routerLinkActive="active">ادارة المستخدمين</li>
+    <li  *ngIf="showReporting" class="nav-header"  data-toggle="collapse" data-target="#report"> 
+       <div class="d-flex justify-content-between align-items-center">
+      التقارير
+      <i class="fa fa-angle-down"></i>
+       </div>
+      <ul class="nav nav-list collapse" id="report">
+        <li (click)="hideMenu()" class="border-0" routerLink="/building-report" routerLinkActive="active">تقرير بالمباني</li> 
+        <li (click)="hideMenu()" class="border-0" routerLink="/safety-notes-report" routerLinkActive="active">تقرير بالملاحظات</li> 
+        <li (click)="hideMenu()" class="border-0" routerLink="/safety-evaluation-report" routerLinkActive="active">تقرير بالاختبارات</li> 
+
+      </ul>
+    </li> 
+    
+   
+  </ul>
+</div>

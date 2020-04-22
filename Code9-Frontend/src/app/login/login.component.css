@@ -1,0 +1,32 @@
+.or{
+    position: relative;
+}
+.or span{
+    background-color: #58666e;
+    padding: 3px 11px;
+    border-radius: 50%;
+    color: #fff;
+}
+.or:after{
+    content: "";
+    width: 43%;
+    height: 2px;
+    background-color: #dfdcdc;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.or:before{
+    content: "";
+    width: 43%;
+    height: 2px;
+    background-color: #dfdcdc;
+    position: absolute;
+    left: 0;
+    top: 50%;
+}
+.pointer{
+    cursor: pointer;
+    color: #2191cc;
+    font-weight: 900;
+}

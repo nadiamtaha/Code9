@@ -1,0 +1,58 @@
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham-dark.css";
+@import '~dropzone/dist/min/dropzone.min.css';
+
+/* @import url('https://fonts.googleapis.com/css?family=Cairo:600&display=swap'); */
+
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Cairo';
+    src: url('assets/fonts/ArbFONTS-Cairo-SemiBold-1.ttf');
+}
+
+*{
+    text-align: right;
+    margin:0;
+    padding: 0;
+    font-family: 'Cairo' ;
+}
+.login-page{
+    min-height: 100vh;
+}
+.login-form{
+    border-radius: 25px;
+    box-shadow: 0 0 5px #ccc;
+    height: 400px;
+    width: 60%;
+}
+.btn-login{
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    background-color: #3064CE;
+}
+.left-login{
+    background-image: url(./assets/images/login.png);
+    background-size: 100% 100%
+}
+.form-control{
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+.form-control:focus {
+   box-shadow: none;
+  }
+
+  @media (max-width:768px){
+    .left-login {
+        background: none;
+        width:0 !important
+
+    }
+    .right-login{
+        width:100% !important
+    }
+}
