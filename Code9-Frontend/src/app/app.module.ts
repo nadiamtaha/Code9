@@ -24,6 +24,7 @@ import { environment } from 'src/environments/environment';
 import { DropzoneconfigService } from './services/dropzoneconfig.service';
 import { AppConfigService } from './services/app-config.service';
 import { DatePipe } from '@angular/common';
+import { MedicalStatusComponent } from './modules/medical-status/medical-status.component';
 
 
 
@@ -34,6 +35,7 @@ import { DatePipe } from '@angular/common';
     SidebarComponent,
     ApplayoutComponent,
     LoginComponent,
+    MedicalStatusComponent,
    
   ],
   imports: [
@@ -51,7 +53,7 @@ import { DatePipe } from '@angular/common';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-top-left',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
       easing:'ease-in',
       progressAnimation:'decreasing'

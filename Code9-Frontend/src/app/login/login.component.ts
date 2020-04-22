@@ -28,14 +28,12 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    this.loginForm.value.UserType=1;
     this._AuthenticationService.login(this.loginForm.value).subscribe({next:response=>{
 
       if(response.isSuccess){
         localStorage.setItem('currentUser',JSON.stringify(response));
         this.toastr.success("login successfully");
-
-        //this.router.navigateByUrl('/dashboard');
+        this.router.navigateByUrl('/MedicalStatus');
        }
        else{
         this.toastr.error(response.errors[0]);

@@ -4,13 +4,14 @@ import { ApplayoutComponent } from './applayout/applayout.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from './services/guards/auth-guard.service';
+import { MedicalStatusComponent } from './modules/medical-status/medical-status.component';
 
 
 
 export const routes: Routes = [
   
-  
-  { path: '', component: LoginComponent},
+  {path:'MedicalStatus',component:MedicalStatusComponent,canActivate: [AuthGuard]},
+  { path: '', component: MedicalStatusComponent},
   { path: 'login', component: LoginComponent},
 
 ]

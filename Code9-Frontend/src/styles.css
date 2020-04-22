@@ -15,10 +15,73 @@
     text-align: right;
     margin:0;
     padding: 0;
-    font-family: 'Cairo' ;
 }
 .login-page{
     min-height: 100vh;
+}
+.shadow{
+    border-radius: 25px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #fff;
+}
+.search{
+    background-color: #E4E4E4;
+    border-radius: 30px;
+}
+button{
+    border:1px solid #3064CE !important;
+    border-radius: 30px !important;
+    padding:10px 35px !important;
+    margin:10px;
+    color: #3064CE !important;
+}
+.fa-search{
+    position: absolute;
+    top: -2px;
+    right: 0;
+    background-color: #3064CE;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #fff;
+}
+.base-info img{
+    width: 40px;
+    height: 40px;
+}
+.item{
+    background-color: #fff;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+}
+.status-img{
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+
+}
+.marked{
+    position: absolute;
+    top: 65%;
+    left: 65%;
+}
+
+.modal-content{
+    border-radius: 30px !important;
+}
+.status-img img{
+    width:45px;
+    height: 45px;
+}
+.userid span{
+    padding: 7px 16px;
+    color: #3064CE;
+    border-radius: 20px;
+    background-color: #EDF1FC;
 }
 .login-form{
     border-radius: 25px;
@@ -36,14 +99,30 @@
     background-image: url(./assets/images/login.png);
     background-size: 100% 100%
 }
-.form-control{
+.abs-img{
+    position: absolute;
+    right: 0;
+    z-index: -4
+}
+/* .full-page{
+    height: 100vh;
+    background-position: right top;
+    background-image: url(./assets/images/curve.png);
+    background-size: 45% 60%;
+    background-repeat: no-repeat;
+} */
+.login-input{
     border-radius: 0;
     border: none;
     border-bottom: 1px solid #ccc;
     text-align: left;
     padding-left: 30px;
 }
-.form-control:focus {
+.search-input{
+    text-align: left;
+    border-radius: 30px;
+}
+.login-input:focus {
    box-shadow: none;
   }
   .form-group{
@@ -55,7 +134,13 @@
     top: 13px;
     width: 20px;
   }
-
+  .pointer{
+    cursor: pointer;
+  }
+  .active-btn{
+      background-color: #3064CE;
+      color:#fff !important
+  }
   @media (max-width:768px){
     .login-form{
         width:95%
@@ -63,5 +148,23 @@
 
     .right-login{
         padding: 50px 10px !important;
+        }
+        .shadow{
+            padding: 0 !important;
+        }
+        .search{
+            padding: 10px !important;
+        }
+        .comp-wrapper
+        {
+            width: 100% !important;
+        }
+        .item{
+            width: 95%;
+    margin: auto;
+
+        }
+        .base-info img{
+            margin:0 !important
         }
 }

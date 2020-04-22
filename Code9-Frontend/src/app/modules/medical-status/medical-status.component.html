@@ -1,0 +1,109 @@
+<ngx-spinner  type = "timer"></ngx-spinner>
+<div class="abs-img">
+    <img width="500px" src="./assets/images/curve.png">
+</div>
+<div class="full-page text-left m-auto">
+    <div class="text-left m-auto w-75 p-4 comp-wrapper">
+    <img width="200" class="mb-3 ml-5" src="./assets/images/logo.png" /> 
+    <div (click)="logout()" class="pointer mt-4 float-right text-white d-flex align-items-center">     
+    <i  class="fa-2x fa fa-power-off mr-2"></i>
+    <h5 class="m-0">logout</h5>
+</div>
+    <div class="shadow p-5 wow fadeInDown w-100">
+        <div class="text-center">
+           
+             <h2 class="text-center font-weight-bolder">Change Medical Status </h2>
+             <div class="btns-cont my-4 text-center">
+             <button (click)="activeBtn($event)" class="btn active-btn" id="citizin">
+                 <i class="fa fa-user pr-2"></i>Citizen</button>
+             <button (click)="activeBtn($event)" class="btn" id="shop">
+                <i class="fa fa-building pr-2"></i>Shop</button>
+                </div>
+
+                <div class="search p-5">
+                    <div class="form-group">
+                    <i class="fa fa-search" (click)="search()"></i>
+                    <input *ngIf="!isCitizenSelected" [(ngModel)]="searchTxt" class="form-control search-input" placeholder="Licence Number" />
+
+                    <input *ngIf="isCitizenSelected" [(ngModel)]="searchTxt" class="form-control search-input" placeholder="User National ID" />
+                </div>
+
+                 <div *ngIf="isSearchClick" class="search-results px-4">
+                    
+                    <div style="cursor:pointer;" href="#" data-toggle="modal" (click)="openStatus()" data-target="#exampleModal"  class="item mb-2 row">
+                        <div class="base-info d-flex col-md-8 align-items-center">
+                            <img class="mr-4" src="./assets/images/Profile.png">
+                            <div class="name-date text-left">
+                                <h5 class="font-weight-bold">{{data.fullName}}</h5>
+                                <span *ngIf="isCitizenSelected">{{data.age}}</span>
+                            </div>
+                        
+                        </div>
+                        <div class="userid col-md-4">
+                           
+                            <span *ngIf="isCitizenSelected">{{data.idNumber}}</span>
+                            <span *ngIf="!isCitizenSelected">{{data.licenseNumber}}</span>
+
+                        </div>
+                    </div>
+                    <div class="modal  fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                   
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div>
+                               <div class="status-container d-flex justify-content-around my-4">
+                                   <div>
+                                <div (click)="onStatusChange('infected')" class="status-img">
+                                    <img src="./assets/images/infected.png" />
+                                    <img *ngIf="infected" class="marked" src="./assets/images/marked.png" />
+
+                                 </div>
+                                 <h5 class="mt-3  font-weight-bolder">Infected</h5>
+                                </div>
+                                <div>
+                                 <div (click)="onStatusChange('suspecious')" class="status-img">
+                                    <img src="./assets/images/suspecious.png" />
+
+                                    <img *ngIf="suspecious" class="marked" src="./assets/images/marked.png" />
+
+                                 </div>
+                                 <h5 class="mt-3  font-weight-bolder">Suspicious</h5>
+
+                                </div>
+                                <div>
+
+                                   <div (click)="onStatusChange('normal')" class="status-img">
+                                       <img src="./assets/images/normal.png" />
+                                       <img *ngIf="normal" class="marked" src="./assets/images/marked.png" />
+
+                                    </div>
+                                    <h5 class="mt-3 font-weight-bolder">Normal</h5>
+
+                                
+                               </div> 
+                            </div>  
+                                <div class="modal-footer justify-content-center">
+                                    
+                                        <button (click)="editStatus()"  type="submit" class="btn active-btn" >submit</button>
+                
+                                        <button type="button" class="btn" data-dismiss="modal">cancel</button>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+                </div> 
+                <div class="bg-white text-center" *ngIf="!isSearchClick">
+                      <img src="./assets/images/notfound.png" />
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+</div>

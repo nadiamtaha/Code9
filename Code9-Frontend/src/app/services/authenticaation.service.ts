@@ -10,33 +10,32 @@ import { AppConfigService } from './app-config.service';
 export class AuthenticationService {
   baseUrl:any;
   loginUrl:any;
-  registerUrl:any;
-  codeUrl:any
+  searchUrl:any;
+  statusUrl:any;
   constructor(private http:HttpClient,public appConfigService: AppConfigService) { 
     this.baseUrl=appConfigService.apiBaseUrl;
     this.loginUrl=this.baseUrl+'Account/Login';
-    this.registerUrl=this.baseUrl+'Account/Register';
-    this.codeUrl=this.baseUrl+'Account/CheckVerificationCode';
+    this.searchUrl=this.baseUrl+'Admin/Search';
+    this.statusUrl=this.baseUrl+'Admin/EditStatus'
   }
 
-  
+  public search(model):Observable<any>
+  {  
+    //var credintials =`username=${user.username}&password=${user.password}`;
+    return this.http.post(this.searchUrl,model)
+  }
 
   public login(user):Observable<any>
   {  
     //var credintials =`username=${user.username}&password=${user.password}`;
     return this.http.post(this.loginUrl,user)
   }
+  public editStatus(status):Observable<any>
+  {  
+    //var credintials =`username=${user.username}&password=${user.password}`;
+    return this.http.post(this.statusUrl,status)
+  }
  
-  public register(user):Observable<any>
-  {  
-    //var credintials =`username=${user.username}&password=${user.password}`;
-    return this.http.post(this.registerUrl,user)
-  }
-  public checkVerificationCode(user):Observable<any>
-  {  
-    //var credintials =`username=${user.username}&password=${user.password}`;
-    return this.http.post(this.codeUrl,user)
-  }
   //test api
   // public getVerificationCodeByUserName(user):Observable<any>
   // {  

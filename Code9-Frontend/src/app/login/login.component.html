@@ -1,13 +1,13 @@
-<ngx-spinner  type = "fire"></ngx-spinner>
+<ngx-spinner  type = "timer"></ngx-spinner>
 
 <div class="login-page d-flex justify-content-center align-items-center">
     <div class="login-form wow fadeInDown d-flex">
         <div class="w-50 left-login"></div>
         <form class="right-login w-50 p-5 text-left" [formGroup]="loginForm" (ngSubmit)="login()">
-            <img class="mb-4" src="./assets/images/logo.png" />      
+            <img width="200" class="mb-4" src="./assets/images/logo.png" />      
             <div class="form-group mb-4">
                 <img src="./assets/images/id-icon.png">
-                <input type="text" formControlName="id" class="form-control mb-1" placeholder="ID Number" required="required">
+                <input type="text" formControlName="id" class="form-control login-input mb-1" placeholder="ID Number" required="required">
                 <div *ngIf="loginForm.controls.id.touched && loginForm.controls.id.errors&& loginForm.controls.id.errors.required != null" class="text-danger text-left">field is required</div>
 
             </div>
@@ -15,7 +15,7 @@
             <div class="form-group">
                 <img src="./assets/images/pass-icon.png">
 
-                <input type="password" formControlName="password" class="mb-1 form-control" placeholder="Password" required="required">
+                <input type="password" formControlName="password" class="mb-1 login-input form-control" placeholder="Password" required="required">
                 <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors&& loginForm.controls.password.errors.required != null" class="text-danger text-left">field is required</div>
 
             </div>
