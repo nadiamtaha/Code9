@@ -5,7 +5,7 @@
 <div class="full-page text-left m-auto">
     <div class="text-left m-auto w-75 p-4 comp-wrapper">
     <img width="200" class="mb-3 ml-5" src="./assets/images/logo.png" /> 
-    <div (click)="logout()" class="pointer mt-4 float-right text-white d-flex align-items-center">     
+    <div (click)="onLogoutIconClicked()" class="pointer mt-4 float-right text-white d-flex align-items-center">     
     <i  class="fa-2x fa fa-power-off mr-2"></i>
     <h5 class="m-0">logout</h5>
 </div>
@@ -34,8 +34,8 @@
                         <div class="base-info d-flex col-md-8 align-items-center">
                             <img class="mr-4" src="./assets/images/Profile.png">
                             <div class="name-date text-left">
-                                <h5 class="font-weight-bold">{{data.fullName}}</h5>
-                                <img class="cal" src="./assets/images/callender.svg"/>
+                                <h5 class="font-weight-bold text-left">{{data.fullName}}</h5>
+                                <img *ngIf="isCitizenSelected" class="cal" src="./assets/images/callender.svg"/>
 
                                 <span *ngIf="isCitizenSelected">
                                     {{data.dateOfBirth}}</span>
@@ -61,7 +61,9 @@
                                 <div>
 
                                     <div (click)="onStatusChange('normal')" class="status-img">
-                                        <img src="./assets/images/normal.png" />
+                                        <img *ngIf="isCitizenSelected" src="./assets/images/normal.png" />
+                                        <img *ngIf="!isCitizenSelected" src="./assets/images/s-normal.png" />
+
                                         <img *ngIf="normal" class="marked" src="./assets/images/marked.png" />
  
                                      </div>
@@ -71,7 +73,8 @@
                                 </div> 
                                 <div>
                                  <div (click)="onStatusChange('suspecious')" class="status-img">
-                                    <img src="./assets/images/suspecious.png" />
+                                    <img *ngIf="isCitizenSelected" src="./assets/images/suspecious.png" />
+                                    <img *ngIf="!isCitizenSelected" src="./assets/images/s-suspecious.png" />
 
                                     <img *ngIf="suspecious" class="marked" src="./assets/images/marked.png" />
 
@@ -83,7 +86,9 @@
 
                                <div>
                                 <div (click)="onStatusChange('infected')" class="status-img">
-                                    <img src="./assets/images/infected.png" />
+                                    <img *ngIf="isCitizenSelected" src="./assets/images/infected.png" />
+                                    <img *ngIf="!isCitizenSelected" src="./assets/images/s-infected.png" />
+
                                     <img *ngIf="infected" class="marked" src="./assets/images/marked.png" />
 
                                  </div>

@@ -65,10 +65,21 @@ button{
 }
 .marked{
     position: absolute;
-    top: 65%;
-    left: 65%;
-}
+    top: 75%;
+    left: 75%;
+    width: 35px !important;
 
+}
+#swal2-content{
+    text-align: center;
+}
+.swal2-styled.swal2-confirm{
+    background-color: #3064CE !important;
+    color:#fff !important
+}
+.swal2-styled.swal2-cancel{
+    background-color: transparent !important;
+}
 .modal-content{
     border-radius: 30px !important;
 }

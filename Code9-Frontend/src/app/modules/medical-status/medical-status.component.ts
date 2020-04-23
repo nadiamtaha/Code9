@@ -8,6 +8,8 @@ import { AuthenticationService } from 'src/app/services/authenticaation.service'
 declare var $ :any;
 import * as moment from 'moment';
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+
 @Component({
   selector: 'app-medical-status',
   templateUrl: './medical-status.component.html',
@@ -56,6 +58,11 @@ export class MedicalStatusComponent implements OnInit {
   }
   activeBtn(e)
   {
+    this.searchTxt="";
+    this.isSearchClick=false
+    this.infected=false;
+    this.normal=false;
+    this.suspecious=false;
     if(e.target.innerText=="Citizen")
     {
       $("#citizin").addClass("active-btn");
@@ -68,8 +75,6 @@ export class MedicalStatusComponent implements OnInit {
       this.isCitizenSelected=false
 
     }
-    if(this.searchTxt)
-    this.search()
   }
 
   search(){
@@ -118,10 +123,11 @@ export class MedicalStatusComponent implements OnInit {
     })
   }
   editStatus(){
-    if(this.data.idNumber)
-     this.statusModel.userId=this.data.id;
+    this.spinner.show();
+   // if(isNumber(this.data.id))
+   this.statusModel.userId = this.data.id.toString();
     // if (this.data.licenseNumber)
-    //  this.statusModel.userId=this.data.idNumber
+    //   this.statusModel.userId=this.data.idNumber
     this.statusModel.userType= this.searchModel.userType;
      this._AuthenticationService.editStatus(this.statusModel).subscribe({next:response=>{
       if(response.isSuccess){
@@ -151,10 +157,28 @@ export class MedicalStatusComponent implements OnInit {
     this.router.navigateByUrl(`/login`)
   }
   openStatus(){
+    
     $("#exampleModal").modal('show');
 
 
 
+  }
+
+  onLogoutIconClicked(){
+    Swal.fire({
+      title: '',
+      text:  `Are you sure you want to logout?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Submit',
+      cancelButtonText: 'Cancel'
+    }).then((result) => {
+      if (result.value) {
+        this.logout();
+
+      }
+    })
+   
   }
   ngOnInit() {
   }
