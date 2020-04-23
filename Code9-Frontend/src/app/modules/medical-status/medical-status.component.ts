@@ -110,7 +110,7 @@ export class MedicalStatusComponent implements OnInit {
   }
   editStatus(){
     if(this.data.idNumber)
-     this.statusModel.userId=this.data.idNumber
+     this.statusModel.userId=this.data.id
     // if (this.data.licenseNumber)
     //  this.statusModel.userId=this.data.idNumber
     this.statusModel.userType= this.searchModel.userType;

@@ -11,7 +11,7 @@ import { MedicalStatusComponent } from './modules/medical-status/medical-status.
 export const routes: Routes = [
   
   {path:'MedicalStatus',component:MedicalStatusComponent,canActivate: [AuthGuard]},
-  { path: '', component: MedicalStatusComponent},
+  { path: '', component: MedicalStatusComponent,canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},
 
 ]
