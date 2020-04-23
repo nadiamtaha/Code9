@@ -11,12 +11,15 @@ export class AuthenticationService {
   baseUrl:any;
   loginUrl:any;
   searchUrl:any;
-  statusUrl:any;
+  editStatusUrl:any;
+  getStatusUrl:any;
+
   constructor(private http:HttpClient,public appConfigService: AppConfigService) { 
     this.baseUrl=appConfigService.apiBaseUrl;
     this.loginUrl=this.baseUrl+'Account/Login';
     this.searchUrl=this.baseUrl+'Admin/Search';
-    this.statusUrl=this.baseUrl+'Admin/EditStatus'
+    this.editStatusUrl=this.baseUrl+'Admin/EditStatus';
+    this.getStatusUrl=this.baseUrl+'Dashbord/GetDashboardData';
   }
 
   public search(model):Observable<any>
@@ -33,9 +36,13 @@ export class AuthenticationService {
   public editStatus(status):Observable<any>
   {  
     //var credintials =`username=${user.username}&password=${user.password}`;
-    return this.http.post(this.statusUrl,status)
+    return this.http.post(this.editStatusUrl,status)
   }
- 
+ public getStatus(user):Observable<any>
+ {
+  return this.http.post(this.getStatusUrl,user)
+
+ }
   //test api
   // public getVerificationCodeByUserName(user):Observable<any>
   // {  

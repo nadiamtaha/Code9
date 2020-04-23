@@ -24,9 +24,10 @@ export class MedicalStatusComponent implements OnInit {
   infected:boolean=false;
   data:any={};
   searchTxt;
-  searchModel:any={};
-  statusModel:any={};
-
+  seachModal:any={};
+  editStatusModal:any={};
+  getStatusModal:any={};
+  status:any;
   constructor(private router: Router, private formBuilder: FormBuilder,
     private _AuthenticationService:AuthenticationService,private wowService: NgwWowService,
     private spinner: NgxSpinnerService,private toastr: ToastrService ) { 
@@ -38,21 +39,21 @@ export class MedicalStatusComponent implements OnInit {
         this.infected=true;
         this.normal=false;
         this.suspecious=false;
-        this.statusModel.userStatusEnum=3
+        this.editStatusModal.userStatusEnum=3
     }
     else if(status=="suspecious")
     {
       this.infected=false;
       this.normal=false;
       this.suspecious=true;
-      this.statusModel.userStatusEnum=2
+      this.editStatusModal.userStatusEnum=2
 
     }
     else{
       this.infected=false;
       this.normal=true;
       this.suspecious=false;
-      this.statusModel.userStatusEnum=1
+      this.editStatusModal.userStatusEnum=1
 
     }
   }
@@ -80,17 +81,17 @@ export class MedicalStatusComponent implements OnInit {
   search(){
     this.spinner.show();
     if(this.isCitizenSelected){
-      this.searchModel.userType=1;
+      this.seachModal.userType=1;
     }
     else{
-      this.searchModel.userType=2;
+      this.seachModal.userType=2;
     }
     this.isSearchClick=true;
     if(this.searchTxt==undefined)
     this.searchTxt="";
-    this.searchModel.id=this.searchTxt;
+    this.seachModal.id=this.searchTxt;
 
-    this._AuthenticationService.search(this.searchModel).subscribe({next:response=>{
+    this._AuthenticationService.search(this.seachModal).subscribe({next:response=>{
       if(response.isSuccess){
         this.isSearchClick=true;
         this.data=response.data[0];
@@ -125,11 +126,11 @@ export class MedicalStatusComponent implements OnInit {
   editStatus(){
     this.spinner.show();
    // if(isNumber(this.data.id))
-   this.statusModel.userId = this.data.id.toString();
+   this.editStatusModal.userId = this.data.id.toString();
     // if (this.data.licenseNumber)
-    //   this.statusModel.userId=this.data.idNumber
-    this.statusModel.userType= this.searchModel.userType;
-     this._AuthenticationService.editStatus(this.statusModel).subscribe({next:response=>{
+    //   this.editStatusModal.userId=this.data.idNumber
+    this.editStatusModal.userType= this.seachModal.userType;
+     this._AuthenticationService.editStatus(this.editStatusModal).subscribe({next:response=>{
       if(response.isSuccess){
         this.toastr.success("Status updated succesfully");
         $("#exampleModal").modal('hide');
@@ -157,13 +158,56 @@ export class MedicalStatusComponent implements OnInit {
     this.router.navigateByUrl(`/login`)
   }
   openStatus(){
-    
+    this.getStatus()
     $("#exampleModal").modal('show');
 
 
 
   }
+getStatus(){
+  this.getStatusModal.id=this.data.id.toString();
+  this.getStatusModal.userType=this.seachModal.userType;
 
+
+  this._AuthenticationService.getStatus(this.getStatusModal).subscribe({next:response=>{
+    if(response.isSuccess){
+      //this.isSearchClick=true;
+      this.status=response.data.status;
+      if(this.status==1){
+        this.infected=false;
+        this.normal=true;
+        this.suspecious=false;
+      }
+      else if(this.status==2){
+        this.infected=false;
+        this.normal=false;
+        this.suspecious=true;
+      }
+      else if(this.status==3){
+        this.infected=true;
+        this.normal=false;
+        this.suspecious=false;
+      }
+     }
+     else{
+      this.toastr.error(response.errors[0]);
+      //this.isSearchClick=false;
+
+     }
+     this.spinner.hide();
+
+  },
+  error:err=>{
+    this.isSearchClick=false;
+    this.spinner.hide();
+    this.toastr.error('حدث خطأ ما !');
+    console.log(err.error);
+
+    
+  }
+  
+  })
+}
   onLogoutIconClicked(){
     Swal.fire({
       title: '',
