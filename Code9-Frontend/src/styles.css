@@ -44,9 +44,10 @@ button{
     border-radius: 30px;
     color: #fff;
 }
-.base-info img{
-    width: 40px;
-    height: 40px;
+.base-info .cal{
+    margin-top: -4px;
+    /* width: 40px;
+    height: 40px; */
 }
 .item{
     background-color: #fff;
@@ -57,9 +58,7 @@ button{
     border-radius: 20px;
 }
 .status-img{
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 15px;
+    
     cursor: pointer;
     position: relative;
 
@@ -74,8 +73,9 @@ button{
     border-radius: 30px !important;
 }
 .status-img img{
-    width:45px;
-    height: 45px;
+    width: 100px;
+    /* width:45px;
+    height: 45px; */
 }
 .userid span{
     padding: 7px 16px;

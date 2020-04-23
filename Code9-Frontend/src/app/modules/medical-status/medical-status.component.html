@@ -35,7 +35,10 @@
                             <img class="mr-4" src="./assets/images/Profile.png">
                             <div class="name-date text-left">
                                 <h5 class="font-weight-bold">{{data.fullName}}</h5>
-                                <span *ngIf="isCitizenSelected">{{data.dateOfBirth}}</span>
+                                <img class="cal" src="./assets/images/callender.svg"/>
+
+                                <span *ngIf="isCitizenSelected">
+                                    {{data.dateOfBirth}}</span>
                             </div>
                         
                         </div>
@@ -55,14 +58,17 @@
                         <div class="container-fluid">
                             <div>
                                <div class="status-container d-flex justify-content-around my-4">
-                                   <div>
-                                <div (click)="onStatusChange('infected')" class="status-img">
-                                    <img src="./assets/images/infected.png" />
-                                    <img *ngIf="infected" class="marked" src="./assets/images/marked.png" />
+                                <div>
 
-                                 </div>
-                                 <h5 class="mt-3  font-weight-bolder">Infected</h5>
-                                </div>
+                                    <div (click)="onStatusChange('normal')" class="status-img">
+                                        <img src="./assets/images/normal.png" />
+                                        <img *ngIf="normal" class="marked" src="./assets/images/marked.png" />
+ 
+                                     </div>
+                                     <h5 class="mt-3 text-muted text-center">Normal</h5>
+ 
+                                 
+                                </div> 
                                 <div>
                                  <div (click)="onStatusChange('suspecious')" class="status-img">
                                     <img src="./assets/images/suspecious.png" />
@@ -70,20 +76,19 @@
                                     <img *ngIf="suspecious" class="marked" src="./assets/images/marked.png" />
 
                                  </div>
-                                 <h5 class="mt-3  font-weight-bolder">Suspicious</h5>
+                                 <h5 class="mt-3 text-muted text-center">Suspicious</h5>
 
                                 </div>
-                                <div>
+                              
 
-                                   <div (click)="onStatusChange('normal')" class="status-img">
-                                       <img src="./assets/images/normal.png" />
-                                       <img *ngIf="normal" class="marked" src="./assets/images/marked.png" />
+                               <div>
+                                <div (click)="onStatusChange('infected')" class="status-img">
+                                    <img src="./assets/images/infected.png" />
+                                    <img *ngIf="infected" class="marked" src="./assets/images/marked.png" />
 
-                                    </div>
-                                    <h5 class="mt-3 font-weight-bolder">Normal</h5>
-
-                                
-                               </div> 
+                                 </div>
+                                 <h5 class="mt-3  text-muted text-center">Infected</h5>
+                                </div>
                             </div>  
                                 <div class="modal-footer justify-content-center">
                                     

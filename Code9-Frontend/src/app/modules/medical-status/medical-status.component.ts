@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { NgwWowService } from 'ngx-wow';
 import { AuthenticationService } from 'src/app/services/authenticaation.service';
 declare var $ :any;
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-medical-status',
@@ -88,6 +89,14 @@ export class MedicalStatusComponent implements OnInit {
       if(response.isSuccess){
         this.isSearchClick=true;
         this.data=response.data[0];
+        if(this.data.dateOfBirth)
+
+        {
+          var date = new Date(this.data.dateOfBirth);
+          this.data.dateOfBirth=moment(date.toISOString().slice(0,10)).format('DD-MM-YYYY');
+          //this.data.dateOfBirth.toISOString().slice(0,10);
+
+        }
        }
        else{
         this.toastr.error(response.errors[0]);
@@ -110,7 +119,7 @@ export class MedicalStatusComponent implements OnInit {
   }
   editStatus(){
     if(this.data.idNumber)
-     this.statusModel.userId=this.data.id
+     this.statusModel.userId=this.data.id;
     // if (this.data.licenseNumber)
     //  this.statusModel.userId=this.data.idNumber
     this.statusModel.userType= this.searchModel.userType;
