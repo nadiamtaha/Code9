@@ -34,7 +34,7 @@
     "datatables.net-dt": "^1.10.20",
     "datatables.net-responsive": "^2.2.3",
     "datatables.net-responsive-dt": "^2.2.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mdbootstrap": "^4.13.0",
     "moment": "^2.24.0",
     "ng-select2": "^1.2.2",
