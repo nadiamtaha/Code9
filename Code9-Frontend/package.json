@@ -36,7 +36,7 @@
     "datatables.net-responsive-dt": "^2.2.3",
     "jquery": "^3.4.1",
     "mdbootstrap": "^4.13.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-select2": "^1.2.2",
     "ng2-charts": "^2.3.0",
     "ngx-dropzone-wrapper": "^8.0.0",
